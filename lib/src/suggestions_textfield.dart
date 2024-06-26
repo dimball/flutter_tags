@@ -13,9 +13,7 @@ typedef OnSubmittedCallback = void Function(String string);
 
 class SuggestionsTextField extends StatefulWidget {
   SuggestionsTextField(
-      {required this.tagsTextField, this.onSubmitted, Key? key})
-      : assert(tagsTextField != null),
-        super(key: key);
+      {required this.tagsTextField, this.onSubmitted, Key? key});
 
   final TagsTextField tagsTextField;
   final OnSubmittedCallback? onSubmitted;
@@ -25,7 +23,6 @@ class SuggestionsTextField extends StatefulWidget {
 }
 
 class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
-  final _controller = TextEditingController();
 
   List<String> _matches = [];
   String? _helperText;
@@ -36,14 +33,10 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
   double _fontSize = 14;
   InputDecoration? _inputDecoration;
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    _helperText = widget.tagsTextField.helperText ?? "no matches";
+        _helperText = widget.tagsTextField.helperText ?? "no matches";
     _suggestions = widget.tagsTextField.suggestions;
     _constraintSuggestion = widget.tagsTextField.constraintSuggestion;
     _inputDecoration = widget.tagsTextField.inputDecoration;
@@ -76,7 +69,7 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
           ),
         ),
         TextField(
-          controller: _controller,
+          controller: widget.tagsTextField.controller,
           focusNode: widget.tagsTextField.focusNode,
           enabled: widget.tagsTextField.enabled,
           autofocus: widget.tagsTextField.autofocus ?? true,
@@ -134,18 +127,18 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
     if (widget.tagsTextField.lowerCase) str = str.toLowerCase();
 
     str = str.trim();
-
+   
     if (_suggestions != null) {
       if (_matches.isNotEmpty || !_constraintSuggestion) {
         if (onSubmitted != null) onSubmitted(str);
         setState(() {
           _matches = [];
         });
-        _controller.clear();
+        widget.tagsTextField.controller.clear();
       }
     } else if (str.isNotEmpty) {
       if (onSubmitted != null) onSubmitted(str);
-      _controller.clear();
+      widget.tagsTextField.controller.clear();
     }
   }
 
@@ -197,7 +190,8 @@ class TagsTextField {
       this.inputDecoration,
       this.onSubmitted,
       this.onChanged,
-      this.focusNode});
+      this.focusNode, 
+      required this.controller});
   final FocusNode? focusNode;
 
   final double width;
@@ -212,6 +206,7 @@ class TagsTextField {
   /// Allows you to insert tags not present in the list of suggestions
   final bool constraintSuggestion;
   final bool lowerCase;
+  final TextEditingController controller;
   final bool? autofocus;
   final String? hintText;
   final Color? hintTextColor;
@@ -223,4 +218,7 @@ class TagsTextField {
   final int? maxLength;
   final OnSubmittedCallback? onSubmitted;
   final OnChangedCallback? onChanged;
+  void clear() {
+    controller.clear();
+  }
 }
