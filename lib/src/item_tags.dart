@@ -1,5 +1,6 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_tags_x/src/tags.dart';
 
 /// Used by [ItemTags.onPressed].
@@ -415,16 +416,13 @@ class _ItemTagsState extends State<ItemTags> {
       case MainAxisAlignment.spaceBetween:
       case MainAxisAlignment.start:
         return TextAlign.start;
-        break;
       case MainAxisAlignment.end:
         return TextAlign.end;
-        break;
       case MainAxisAlignment.spaceAround:
       case MainAxisAlignment.spaceEvenly:
       case MainAxisAlignment.center:
         return TextAlign.center;
     }
-    return null;
   }
 
   ///TextStyle

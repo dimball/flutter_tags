@@ -1,9 +1,10 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 
 import '../flutter_tags_x.dart';
 import 'util/custom_wrap.dart';
 import 'util/null_helper.dart';
-import 'package:flutter_tags_x/src/suggestions_textfield.dart';
 
 ///ItemBuilder
 typedef Widget ItemBuilder(int index);
