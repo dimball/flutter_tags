@@ -277,7 +277,7 @@ class _ItemTagsState extends State<ItemTags> {
       softWrap: false,
       textAlign: _textAlignment,
       overflow: widget.textOverflow,
-      textScaleFactor: widget.textScaleFactor,
+      textScaler: TextScaler.linear(widget.textScaleFactor ?? 1),
       style: _textStyle,
     );
     final Widget icon = widget.icon != null
@@ -291,7 +291,7 @@ class _ItemTagsState extends State<ItemTags> {
                         : EdgeInsets.only(left: 5)),
             child: Icon(
               widget.icon!.icon,
-              color: _textStyle.color,
+              color: _textStyle.color,            
               size: _textStyle.fontSize! * 1.2,
             ),
           )
