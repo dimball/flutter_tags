@@ -378,6 +378,7 @@ class _ItemTagsState extends State<ItemTags> {
                     alignment: Alignment.centerRight,
                     fit: BoxFit.fill,
                     child: GestureDetector(
+                      
                       child: Container(
                         margin: widget.removeButton!.margin ??
                             EdgeInsets.only(left: 5),
@@ -398,12 +399,10 @@ class _ItemTagsState extends State<ItemTags> {
                                   (widget.textStyle.fontSize! / 14),
                             ),
                       ),
-                      onTap: () {
-                        if (widget.removeButton!.onRemoved != null) {
+                      onTap: widget.removeButton!.onRemoved != null ? () {
                           if (widget.removeButton!.onRemoved!())
                             _dataListInherited!.list!.removeAt(widget.index);
-                        }
-                      },
+                      } : null,
                     )))
           ]);
 
