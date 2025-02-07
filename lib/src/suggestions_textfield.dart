@@ -104,11 +104,11 @@ class _SuggestionsTextFieldState extends State<SuggestionsTextField> {
             ),
             enabledBorder: UnderlineInputBorder(
               borderSide:
-                  BorderSide(color: Colors.blueGrey[400]!.withOpacity(0.3)),
+                  BorderSide(color: Colors.blueGrey[400]!.withValues(alpha: 0.3)),
             ),
             border: UnderlineInputBorder(
               borderSide:
-                  BorderSide(color: Colors.blueGrey[400]!.withOpacity(0.3)),
+                  BorderSide(color: Colors.blueGrey[400]!.withValues(alpha: 0.3)),
             ));
 
     return input.copyWith(
