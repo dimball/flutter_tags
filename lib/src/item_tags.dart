@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tags_x/src/tags.dart';
+import 'package:flutter_tags/src/tags.dart';
 
 /// Used by [ItemTags.onPressed].
 typedef OnPressedCallback = void Function(Item i);
