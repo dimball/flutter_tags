@@ -552,9 +552,6 @@ class _MyHomePageState extends State<MyHomePage>
       case 'onlyIcon':
         combine = ItemTagsCombine.onlyIcon;
         break;
-      case 'onlyIcon':
-        combine = ItemTagsCombine.onlyIcon;
-        break;
       case 'onlyImage':
         combine = ItemTagsCombine.onlyImage;
         break;
